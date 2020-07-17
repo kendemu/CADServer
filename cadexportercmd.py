@@ -7,7 +7,7 @@ import sys
 import os
 
 
-FreeCADGui.setupWithoutGUI()
+#FreeCADGui.setupWithoutGUI()
 path = os.getcwd + "/" + sys.argv[1]
 print(path)                            
 
