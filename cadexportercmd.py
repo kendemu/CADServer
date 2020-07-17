@@ -3,9 +3,15 @@ import FreeCADGui
 from xml.dom import minidom
 import inspect
 import Mesh
+import sys
+import os
+
 
 FreeCADGui.setupWithoutGUI()
-FreeCAD.loadFile(u"C:/Users/isekaitenseiproject/Downloads/happymini_body.stp")
+path = os.getcwd + "/" + sys.argv[1]
+print(path)                            
+
+FreeCAD.loadFile(path)
 
 documents = FreeCAD.activeDocument()
 members = inspect.getmembers(documents)
@@ -23,5 +29,10 @@ for p in parts:
 
 print("exporting")
 
-Mesh.export(__objs__, u"C:/Users/isekaitenseiproject/Downloads/happymini-cad.obj")
+
+exportfile = sys.argv[1].strip(".stp") + ".obj"
+exportpath = os.getcwd() + "/" + export
+
+
+Mesh.export(__objs__, exportpath)
 del __objs__
